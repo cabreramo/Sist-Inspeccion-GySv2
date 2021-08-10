@@ -1,0 +1,782 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sist_Inspeccion_GyS.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Sist_Inspeccion_GyS.Views.RegistroInspecciones"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="980" d:DesignWidth="1850"
+             Background="DarkGray">
+    <!--Background="#13295A"-->
+    <Grid Height="980" Width="1850"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <!--Definición de columnas y filas del grid principal-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            <ColumnDefinition Width="1.4*"></ColumnDefinition>
+            <ColumnDefinition Width="2.1*"></ColumnDefinition>
+            <ColumnDefinition Width="2.5*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="2.7*"></RowDefinition>
+            <RowDefinition Height=".5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Groupbox tipo de inspección-->
+        <GroupBox Grid.Column="0" Grid.Row="0" Header="Tipo de inspección" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <RadioButton  Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" GroupName="grpTipoInspeccion" Content="Salida" FontSize="24"  Width="150" Height="50" HorizontalAlignment="Center" Margin="15"/>
+                <RadioButton  Grid.Row="1" Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" GroupName="grpTipoInspeccion" Content="Entrada" FontSize="24" Width="150" Height="50" HorizontalAlignment="Center" Margin="15"/>
+            </Grid>
+        </GroupBox>
+
+        <!--Groupbox información general-->
+        <GroupBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Header="Información General" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox  Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="Inspector(a)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
+                <TextBox  Grid.Column="1" Grid.Row="0" materialDesign:HintAssist.Hint="No. Caja" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
+                <TextBox Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nombre del operador" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
+                <TextBox  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nombre CIA" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
+                <DatePicker Name="LocaleDatePicker" Grid.Column="2" Grid.Row="1" MinWidth="120" materialDesign:HintAssist.Hint="Fecha" Margin="2.5" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" SelectedDate="{x:Static sys:DateTime.Now}"/>
+                <materialDesign:TimePicker MinWidth="100" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Hora" Grid.Column="3" Grid.Row="1" Margin="2.5" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" SelectedTime="{x:Static sys:DateTime.Now}"/>
+            </Grid>
+        </GroupBox>
+
+        <!--Groupbox imagenes-->
+        <GroupBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2" Header="Imagenes" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" MinHeight="170" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte frontal" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                    </Button>
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0" MinHeight="170" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte trasera" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                    </Button>
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1" MinHeight="170" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte derecha" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                    </Button>
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1" MinHeight="170" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte izquierda" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                    </Button>
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="0" MinHeight="170" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Diesel" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                    </Button>
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="1" MinHeight="170" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Termómetro" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
+                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                    </Button>
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+
+        <!--Groupbox luces de la caja-->
+        <GroupBox Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" Header="Luces de la caja" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Column="0" Grid.Row="0" Text="F. Derecha" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="0" Grid.Row="1" Text="C. Derecha" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="0" Grid.Row="2" Text="FR. Derecha" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="0" Grid.Row="3" Text="Dir. Derecha" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="0" Grid.Row="4" Text="Plafón" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+
+                <!---->
+                <TextBlock  Grid.Column="2" Grid.Row="0" Text="F. Izquierda" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="3" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="2" Grid.Row="1" Text="C. Izquierda" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="3" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="2" Grid.Row="2" Text="FR. Izquierda" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="3" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="2" Grid.Row="3" Text="Dir. Izquierda" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="3" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock  Grid.Column="2" Grid.Row="4" Text="ABS" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="3" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+
+                <TextBox  Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones"/>
+            </Grid>
+        </GroupBox>
+
+        <!--Groupbox de las llantas-->
+        <GroupBox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Header="Llantas de la caja" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Row="0" Grid.Column="0" Text="Posición" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Izq. Ext(11)"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Izq. Int(12)"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Izq. Ext(15)"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Izq. Int(16)"/>
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Der. Int(13)"/>
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Der. Ext(14)"/>
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Der. Ext(17)"/>
+                <TextBlock Grid.Row="8" Grid.Column="0" Text="Der. Ext(18)"/>
+
+                
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Marca" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <ComboBox  Grid.Row="1" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <ComboBox Grid.Row="2" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <ComboBox Grid.Row="3" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <ComboBox Grid.Row="4" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <ComboBox Grid.Row="5" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <ComboBox Grid.Row="6" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <ComboBox Grid.Row="7" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <ComboBox Grid.Row="8" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
+                    <ComboBoxItem IsSelected="True" Content="Michelin" />
+                    <ComboBoxItem Content="Bridgestone" />
+                    <ComboBoxItem Content="Firestone" />
+                    <ComboBoxItem Content="BF Goodrich" />
+                    <ComboBoxItem Content="Otra"/>
+                </ComboBox>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Condición" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <ListBox Grid.Column="2" Grid.Row="1" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena" />
+                    <ListBoxItem Content="Regular" />
+                    <ListBoxItem Content="Mala" />
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="2" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena" />
+                    <ListBoxItem Content="Regular" />
+                    <ListBoxItem Content="Mala" />
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="3" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena"/>
+                    <ListBoxItem Content="Regular"/>
+                    <ListBoxItem Content="Mala"/>
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="4" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena"/>
+                    <ListBoxItem Content="Regular"/>
+                    <ListBoxItem Content="Mala"/>
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="5" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena"/>
+                    <ListBoxItem Content="Regular"/>
+                    <ListBoxItem Content="Mala"/>
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="6" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena"/>
+                    <ListBoxItem Content="Regular"/>
+                    <ListBoxItem Content="Mala"/>
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="7" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena" />
+                    <ListBoxItem Content="Regular"/>
+                    <ListBoxItem Content="Mala" />
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="8" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                    <ListBoxItem IsSelected="True" Content="Buena" />
+                    <ListBoxItem Content="Regular"/>
+                    <ListBoxItem Content="Mala"/>
+                </ListBox>
+            </Grid>
+        </GroupBox>
+
+        <!--Groupbox de los perifericos-->
+        <GroupBox Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Header="Perifericos" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Manivela" FontSize="22" VerticalAlignment="Center" />
+                <ToggleButton Grid.Column="1" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Lodera Izq." FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Lodera Der." FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Manitas aire" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="4" Text="Rines remolque" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="5" Text="Mangueras de aire" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="5" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+            </Grid>
+        </GroupBox>
+        
+        <!--Groupbox del termómetro-->
+        <GroupBox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Header="Termómetro" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Column="0" Grid.Row="0" Text="Unidad de medida" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                <Grid Grid.Row="1">
+                    <ListBox Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}" x:Name="unidadMedidaTermometro" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <ListBoxItem Content="°F" IsSelected="True"/>
+                        <ListBoxItem Content="°C" />
+                    </ListBox>
+                </Grid>
+                <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Temp. Prog." Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                <TextBox Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Temp. Real" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+
+            </Grid>
+        </GroupBox>
+
+        <!--Groupbox de los compartimientos ocultos-->
+        <GroupBox Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Header="Compartimientos ocultos" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Defensa" FontSize="22" VerticalAlignment="Center"/>
+                <ToggleButton Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Text="Motor" FontSize="22"/>
+                <ToggleButton Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Text="Llantas" FontSize="22"/>
+                <ToggleButton Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Text="Piso cabina" FontSize="22"/>
+                <ToggleButton Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Text="Tanque combustible" FontSize="22"/>
+                <ToggleButton Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" Text="Cabina" FontSize="22"/>
+                <ToggleButton Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Text="Cilindros aire" FontSize="22"/>
+                <ToggleButton Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Text="Cambios" FontSize="22"/>
+                <ToggleButton Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Text="Quinta rueda" FontSize="22"/>
+                <ToggleButton Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Text="Exterior chasis" FontSize="22"/>
+                <ToggleButton Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Text="Piso remolque (dentro)" FontSize="22"/>
+                <ToggleButton Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Text="Puertas (dentro y fuera)" FontSize="22"/>
+                <ToggleButton Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" Text="Paredes lados" FontSize="22"/>
+                <ToggleButton Grid.Column="5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="4" Grid.Row="1" VerticalAlignment="Center" Text="Techo pared frontal" FontSize="22"/>
+                <ToggleButton Grid.Column="5" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Text="Pared frontal piso" FontSize="22"/>
+                <ToggleButton Grid.Column="5" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" Text="Unidad refrigerada" FontSize="22"/>
+                <ToggleButton Grid.Column="5" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="4" Grid.Row="4"  VerticalAlignment="Center" Text="Mofle" FontSize="22"/>
+                <ToggleButton Grid.Column="5" Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBlock Grid.Column="4" Grid.Row="5"  VerticalAlignment="Center" Text="Sello/Fleje" FontSize="22"/>
+                <ToggleButton Grid.Column="5" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <SolidColorBrush Color="Green" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        <SolidColorBrush Color="Red" />
+                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                </ToggleButton>
+                <TextBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="6" TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones"/>
+            </Grid>
+        </GroupBox>
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Margin="10,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" MinHeight="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Grid.Column="0" Kind="ContentSave" Height="40" Width="40"/>
+                    <TextBlock Grid.Column="1" Text="Guardar" VerticalAlignment="Center" Margin="20,5"/>
+                </Grid>
+            </Button>
+            <Button Grid.Row="1" MinHeight="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Grid.Column="0" Kind="FileEdit" Height="40" Width="40"/>
+                    <TextBlock Grid.Column="1" Text="Editar" VerticalAlignment="Center" Margin="20,5"/>
+                </Grid>
+            </Button>
+            <Button Grid.Row="2" MinHeight="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Grid.Column="0" Kind="Printer" Height="40" Width="40"/>
+                    <TextBlock Grid.Column="1" Text="Imprimir" VerticalAlignment="Center" Margin="20,5"/>
+                </Grid>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sist-Inspeccion-GyS", "Sist-Inspeccion-GyS\Sist-Inspeccion-GyS.csproj", "{BDF45BBA-666E-4287-BBA5-FDAFC2CABA5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDF45BBA-666E-4287-BBA5-FDAFC2CABA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF45BBA-666E-4287-BBA5-FDAFC2CABA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF45BBA-666E-4287-BBA5-FDAFC2CABA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF45BBA-666E-4287-BBA5-FDAFC2CABA5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA9A33BB-2CAA-460A-A28E-76949D13A880}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="Sist_Inspeccion_GyS.Views.InspeccionesRealizadas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sist_Inspeccion_GyS.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+
+             mc:Ignorable="d" 
+             d:DesignHeight="980" d:DesignWidth="1850"
+             Background="DarkGray">
+    <Grid Height="980" Width="1850" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <DataGrid x:Name="dgInspecciones" AutoGenerateColumns="False" CanUserAddRows="False" SelectionUnit="Cell" SelectionMode="Extended" Background="LightGray">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="-" Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}" ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}" EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+
+                        <DataGridCheckBoxColumn.HeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </DataGridCheckBoxColumn.HeaderStyle>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn Width="*" Header="Folio" Binding="{Binding placas}" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Header="Placas" Binding="{Binding placas}" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Header="Operador" Binding="{Binding operador}" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Header="CIA" Binding="{Binding cia}" IsReadOnly="True"/>
+                    <DataGridTemplateColumn Width="0.5*" Header="Fecha inspección salida">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker IsEnabled="False" SelectedDate="{Binding fechaSalida}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="0.5*" Header="Fecha inspección entrada">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker IsEnabled="False" SelectedDate="{Binding fechaEntrada}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button>
+                                    <materialDesign:PackIcon Kind="FilePdf"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button>
+                                    <materialDesign:PackIcon Kind="FileEdit"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button>
+                                    <materialDesign:PackIcon Kind="Delete"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button>
+                                    <materialDesign:PackIcon Kind="Printer" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Inspecciones realizadas" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="60" Foreground="White" Margin="10"/>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Margin="10,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button HorizontalAlignment="Left" Grid.Column="0" MinHeight="50" Margin="30,5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="Delete" Height="40" Width="40"/>
+                        <TextBlock Grid.Column="1" Text="Eliminar seleccionados" VerticalAlignment="Center" Margin="20,5"/>
+                    </Grid>
+                </Button>
+                <Grid Grid.Column="2" HorizontalAlignment="Right">
+                    <TextBox  Grid.Column="2" Background="White" Style="{StaticResource MaterialDesignFilledTextBox}" VerticalAlignment="Center" AcceptsReturn="True" TextWrapping="Wrap" MinWidth="250" MaxWidth="400" materialDesign:HintAssist.Hint="Folio" IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>
