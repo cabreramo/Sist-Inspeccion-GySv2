@@ -23,11 +23,11 @@ namespace Sist_Inspeccion_GyS
     /// </summary>
     public partial class MainWindow : Window
     {
-        string connetionString;
-        SQLiteConnection connection;
-        SQLiteDataAdapter adapter;
-        DataSet ds = new DataSet();
-        string Sql;
+        //string connetionString;
+        //SQLiteConnection connection;
+        //SQLiteDataAdapter adapter;
+        //DataSet ds = new DataSet();
+        //string Sql;
 
 
 
@@ -77,20 +77,20 @@ namespace Sist_Inspeccion_GyS
             ListViewMenu.SelectedItem = ItemInicio;
 
             //cadena de conexion sql server usano la autenticacion de windows.
-            connetionString = "Data Source=;Version=3;New=True;Compress=True;";
-            connection = new SQLiteConnection(connetionString);
-            Sql = "select * from sistemainspeccion";
-            try
-            {
-                connection.Open();
-                adapter = new SQLiteDataAdapter(Sql, connection);
-                adapter.Fill(ds);
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                connection.Close();
-            }
+            //connetionString = "Data Source=;Version=3;New=True;Compress=True;";
+            //connection = new SQLiteConnection(connetionString);
+            //Sql = "select * from sistemainspeccion";
+            //try
+            //{
+            //    connection.Open();
+            //    adapter = new SQLiteDataAdapter(Sql, connection);
+            //    adapter.Fill(ds);
+            //    connection.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    connection.Close();
+            //}
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
