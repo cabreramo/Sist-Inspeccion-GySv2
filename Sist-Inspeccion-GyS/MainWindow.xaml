@@ -38,13 +38,21 @@
     </Window.Triggers>
     
     <Grid Background="LightGray">
-        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Grid Height="100" VerticalAlignment="Top" Background="#020F3F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" x:Name="GridMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Grid Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Background="#020F3F">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
             </Grid.Effect>
             <Grid HorizontalAlignment="Stretch">
-                <TextBlock Text="Sistema de inspecciones" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto" FontSize="58" Foreground="Gainsboro"></TextBlock>
+                <TextBlock Text="Sistema de inspecciones" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto" FontSize="50" Foreground="Gainsboro"></TextBlock>
                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Image Height="70" Margin="5" Source="Resources/Logowbg.png"/>
                     <TextBlock Text="G&amp;S Transportes" VerticalAlignment="Center" FontSize="18" Foreground="Gainsboro"/>
@@ -58,7 +66,7 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#020F3F">
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#020F3F">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
             </Grid.Effect>
