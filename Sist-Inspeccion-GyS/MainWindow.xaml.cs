@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
+using System.Configuration;
+
 
 namespace Sist_Inspeccion_GyS
 {
@@ -23,14 +25,6 @@ namespace Sist_Inspeccion_GyS
     /// </summary>
     public partial class MainWindow : Window
     {
-        string connetionString;
-        SQLiteConnection connection;
-        SQLiteDataAdapter adapter;
-        DataSet ds = new DataSet();
-        string Sql;
-
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -55,10 +49,6 @@ namespace Sist_Inspeccion_GyS
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
-                case "ItemInicio":
-                    userControl = new Inicio();
-                    GridMain.Children.Add(userControl);
-                    break;
                 case "ItemRegistro":
                     userControl = new RegistroInspecciones();
                     GridMain.Children.Add(userControl);
@@ -74,23 +64,7 @@ namespace Sist_Inspeccion_GyS
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ListViewMenu.SelectedItem = ItemInicio;
-
-            //cadena de conexion sql server usano la autenticacion de windows.
-            //connetionString = "Data Source=;Version=3;New=True;Compress=True;";
-            ////connection = new SQLiteConnection(connetionString);
-            //Sql = "select * from sistemainspeccion";
-            //try
-            //{
-            //    connection.Open();
-            //    adapter = new SQLiteDataAdapter(Sql, connection);
-            //    adapter.Fill(ds);
-            //    connection.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    connection.Close();
-            //}
+            ListViewMenu.SelectedItem = ItemRegistro;
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)

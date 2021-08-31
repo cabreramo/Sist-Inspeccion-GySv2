@@ -13,5 +13,6 @@ namespace Sist_Inspeccion_GyS
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

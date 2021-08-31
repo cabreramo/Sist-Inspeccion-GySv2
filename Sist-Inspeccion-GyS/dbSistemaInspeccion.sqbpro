@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/anton/Downloads/Sist-Inspeccion-GySv4/Sist-Inspeccion-GySv4/Sist-Inspeccion-GyS/dbSistemaInspeccion.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="6645"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="0" parent="0"/><expanded_item id="2" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,22:mainCompartimientosOcultos"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">
+CREATE TABLE &quot;LlantaIzqExt11&quot;(
+	&quot;idllanta11&quot; INTEGER NOT NULL, 
+	&quot;marcallanta11&quot;	TEXT NOT NULL,
+	&quot;condicionllanta11&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta11&quot; AUTOINCREMENT)
+)
+
+CREATE TABLE &quot;LlantaIzqInt12&quot; (
+	&quot;idllanta12&quot; INTEGER NOT NULL ,
+	&quot;marcallanta12&quot;	TEXT NOT NULL,
+	&quot;condicionllanta12&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta12&quot; AUTOINCREMENT)
+)
+CREATE TABLE &quot;LlantaDerInt13&quot; (
+	&quot;idllanta13&quot;	INTEGER NOT NULL ,
+	&quot;marcallanta13&quot;	TEXT NOT NULL,
+	&quot;condicionllanta13&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta13&quot; AUTOINCREMENT)
+)
+CREATE TABLE &quot;LlantaDerExt14&quot; (
+	&quot;idllanta14&quot;	INTEGER NOT NULL ,
+	&quot;marcallanta14&quot;	TEXT NOT NULL,
+	&quot;condicionllanta14&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta14&quot; AUTOINCREMENT)
+)
+CREATE TABLE &quot;LlantaIzqExt15&quot; (
+	&quot;idllanta15&quot;	INTEGER NOT NULL ,
+	&quot;marcallanta15&quot;	TEXT NOT NULL,
+	&quot;condicionllanta15&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta15&quot; AUTOINCREMENT)
+)
+CREATE TABLE &quot;LlantaIzqInt16&quot; (
+	&quot;idllanta16&quot;	INTEGER NOT NULL ,
+	&quot;marcallanta16&quot;	TEXT NOT NULL,
+	&quot;condicionllanta16&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta16&quot; AUTOINCREMENT)
+)
+CREATE TABLE &quot;LlantaDerInt17&quot; (
+	&quot;idllanta17&quot;	INTEGER NOT NULL ,
+	&quot;marcallanta17&quot;	TEXT NOT NULL,
+	&quot;condicionllanta17&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta17&quot; AUTOINCREMENT)
+)
+CREATE TABLE &quot;LlantaDerExt18&quot; (
+	&quot;idllanta18&quot;	INTEGER NOT NULL ,
+	&quot;marcallanta18&quot;	TEXT NOT NULL,
+	&quot;condicionllanta18&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;idllanta18&quot; AUTOINCREMENT)
+)
+
+
+CREATE TABLE &quot;Llantas&quot; (
+	&quot;idllantas&quot;	INTEGER NOT NULL ,
+	&quot;idllanta11&quot;	INTEGER NOT NULL,
+	&quot;idllanta12&quot;	INTEGER NOT NULL,
+	&quot;idllanta13&quot;	INTEGER NOT NULL,
+	&quot;idllanta14&quot;	INTEGER NOT NULL,
+	&quot;idllanta15&quot;	INTEGER NOT NULL,
+	&quot;idllanta16&quot;	INTEGER NOT NULL,
+	&quot;idllanta17&quot;	INTEGER NOT NULL,
+	&quot;idllanta18&quot;	INTEGER NOT NULL,
+	CONSTRAINT &quot;PKLlantas&quot; PRIMARY KEY(&quot;idllantas&quot; AUTOINCREMENT), 
+	foreign key(idllanta11) references LlantaIzqExt11(idllanta11),
+	foreign key(idllanta12) references LlantaIzqInt12(idllanta12),
+	foreign key(idllanta13) references LlantaDerInt13(idllanta13),
+	foreign key(idllanta14) references LlantaDerExt14(idllanta14),
+	foreign key(idllanta15) references LlantaIzqExt15(idllanta15),
+	foreign key(idllanta16) references LlantaIzqInt16(idllanta16),
+	foreign key(idllanta17) references LlantaDerInt17(idllanta17),
+	foreign key(idllanta18) references LlantaDerExt18(idllanta18)	
+)
+
+CREATE TABLE &quot;CompartimientosOcultos&quot; (
+	&quot;idcompartimientosocultos&quot;	INTEGER NOT NULL ,
+	&quot;Defensa&quot;	INTEGER NOT NULL,
+	&quot;Motor&quot;	INTEGER NOT NULL,
+	&quot;Llantas&quot;	INTEGER NOT NULL,
+	&quot;PisoCabina&quot;	INTEGER NOT NULL,
+	&quot;TanqueCombustible&quot;	INTEGER NOT NULL,
+	&quot;Cabina&quot;	INTEGER NOT NULL,
+	&quot;CilindrosAire&quot;	INTEGER NOT NULL,
+	&quot;Cambios&quot;	INTEGER NOT NULL,
+	&quot;QuintaRueda&quot;	INTEGER NOT NULL,
+	&quot;ExteriorChasis&quot;	INTEGER NOT NULL,
+	&quot;PisoRemolqueAdentro&quot;	INTEGER NOT NULL,
+	&quot;PuertasAdentroAfuera&quot;	INTEGER NOT NULL,
+	&quot;ParedesLados&quot;	INTEGER NOT NULL,
+	&quot;TechoParedFrontal&quot;	INTEGER NOT NULL,
+	&quot;ParedFrontalPiso&quot;	INTEGER NOT NULL,
+	&quot;UnidadRefrigerada&quot; INTEGER NOT NULL, 
+	&quot;Mofle&quot; INTEGER NOT NULL, 
+	&quot;Fleje&quot; INTEGER NOT NULL,
+	PRIMARY KEY(&quot;idcompartimientosocultos&quot; AUTOINCREMENT)
+)
+
+CREATE TABLE &quot;Imagenes&quot;(
+	&quot;idimagenes&quot; INTEGER NOT NULL ,
+	&quot;ImgCajaFrontal&quot; TEXT NOT NULL,
+	&quot;ImgCajaTrasera&quot; TEXT NOT NULL,
+	&quot;ImgCajaDerecha&quot; TEXT NOT NULL,
+	&quot;ImgCajaIzquierda&quot; TEXT NOT NULL,
+	&quot;ImgDiesel&quot; TEXT NOT NULL,
+	&quot;ImgTermometro&quot; TEXT NOT NULL,
+
+	PRIMARY KEY(&quot;idimagenes&quot; AUTOINCREMENT)
+
+)
+CREATE TABLE &quot;Luces&quot; (
+    &quot;idluces&quot; INTEGER NOT NULL ,
+	&quot;fderecha&quot; INTEGER NOT NULL, 
+	&quot;cderecha&quot;	INTEGER NOT NULL,
+	&quot;frderecha&quot;	INTEGER NOT NULL,
+	&quot;dirderecha&quot;	INTEGER NOT NULL,
+	&quot;plafon&quot;	INTEGER NOT NULL,
+	&quot;fizquierda&quot;	INTEGER NOT NULL,
+	&quot;cizquierda&quot;	INTEGER NOT NULL,
+	&quot;frizquierda&quot; INTEGER NOT NULL, 
+	&quot;dirizquierda&quot; INTEGER NOT NULL, 
+	&quot;abs&quot; INTEGER NOT NULL, 
+	&quot;observacionesluces&quot; TEXT NOT NULL, 
+	PRIMARY KEY(&quot;idluces&quot; AUTOINCREMENT)
+)
+CREATE TABLE &quot;Perifericos&quot; (
+	&quot;idperifericos&quot; INTEGER NOT NULL , 
+	&quot;Manivela&quot;	INTEGER NOT NULL,
+	&quot;LoderaIzq&quot;	INTEGER NOT NULL,
+	&quot;LoderaDerecha&quot;	INTEGER NOT NULL,
+	&quot;ManitasAire&quot;	INTEGER NOT NULL,
+	&quot;RinesRemolque&quot;	INTEGER NOT NULL,
+	&quot;ManguerasAire&quot;	INTEGER NOT NULL,
+	PRIMARY KEY(&quot;idperifericos&quot; AUTOINCREMENT)
+)
+
+CREATE TABLE &quot;InspeccionEntrada&quot;(
+	&quot;folio&quot; VARCHAR(50) NOT NULL, 
+	&quot;nocaja&quot; INTEGER NOT NULL, 
+	&quot;fecha&quot; TEXT NOT NULL, 
+	&quot;hora&quot; TEXT NOT NULL, 
+	&quot;cliente&quot; TEXT NOT NULL, 
+	&quot;nombreoperador&quot; TEXT NOT NULL, 
+	&quot;inspector&quot; TEXT NOT NULL,
+	&quot;unidadmedida&quot;	TEXT NOT NULL,
+	&quot;temperaturaprogramada&quot;	NUMERIC NOT NULL,
+	&quot;temperaturareal&quot;	NUMERIC NOT NULL,
+	&quot;idimagenes&quot; INTEGER NOT NULL,
+	&quot;idluces&quot; INTEGER NOT NULL, 
+	&quot;idperifericos&quot; INTEGER NOT NULL, 
+	&quot;idllantas&quot; INTEGER NOT NULL, 
+	&quot;idcompartimientosocultos&quot; INTEGER NOT NULL,
+	
+	CONSTRAINT PKINSPECCIONENTRADA PRIMARY KEY (&quot;folio&quot;), 
+	CONSTRAINT FKIMAGENES_ENTRADA FOREIGN KEY (idimagenes) REFERENCES Imagenes (idimagenes),
+	CONSTRAINT FKLUCES_ENTRADA FOREIGN KEY (idluces) REFERENCES Luces (idluces),
+	CONSTRAINT FKPERIFERICOS_ENTRADA FOREIGN KEY (idperifericos) REFERENCES Perifericos (idperifericos),
+	CONSTRAINT FKLLANTAS_ENTRADA FOREIGN KEY (idllantas) REFERENCES Llantas (idllantas),
+	CONSTRAINT FKCOMPARTIMIENTOS_ENTRADA FOREIGN KEY (idcompartimientosocultos)	REFERENCES Compartimientosocultos (idcompartimientosocultos)	
+)
+
+CREATE TABLE &quot;InspeccionSalida&quot;(
+	&quot;folio&quot; varchar(50) NOT NULL, 
+	&quot;nocaja&quot; INTEGER NOT NULL, 
+	&quot;fecha&quot; TEXT NOT NULL, 
+	&quot;hora&quot; TEXT NOT NULL, 
+	&quot;cliente&quot; TEXT NOT NULL, 
+	&quot;nombreoperador&quot; TEXT NOT NULL, 
+	&quot;inspector&quot; TEXT NOT NULL, 
+	&quot;unidadmedida&quot;	TEXT NOT NULL,
+	&quot;temperaturaprogramada&quot;	NUMERIC NOT NULL,
+	&quot;temperaturareal&quot;	NUMERIC NOT NULL,
+	&quot;idimagenes&quot; INTEGER NOT NULL,
+	&quot;idluces&quot; INTEGER NOT NULL, 
+	&quot;idperifericos&quot; INTEGER NOT NULL, 
+	&quot;idllantas&quot; INTEGER NOT NULL, 
+	&quot;idcompartimientosocultos&quot; INTEGER NOT NULL,
+	
+	CONSTRAINT PKINSPECCIONSALIDA PRIMARY KEY (&quot;folio&quot;), 
+	CONSTRAINT FKIMAGENES_SALIDA FOREIGN KEY (idimagenes) REFERENCES Imagenes (idimagenes),
+	CONSTRAINT FKLUCES_SALIDA FOREIGN KEY (idluces) REFERENCES Luces (idluces),
+	CONSTRAINT FKPERIFERICOS_SALIDA FOREIGN KEY (idperifericos) REFERENCES Perifericos (idperifericos),
+	CONSTRAINT FKLLANTAS_SALIDA FOREIGN KEY (idllantas) REFERENCES Llantas (idllantas),
+	CONSTRAINT FKCOMPARTIMIENTOS_SALIDA FOREIGN KEY (idcompartimientosocultos)
+	REFERENCES CompartimientosOcultos (idcompartimientosocultos)	
+)
+
+CREATE TABLE &quot;Inspeccion&quot;(
+	&quot;folio&quot; INTEGER NOT NULL, 
+	&quot;folioentrada&quot; VARCHAR (50) NOT NULL,
+	&quot;foliosalida&quot; VARCHAR (50) NOT NULL,
+	
+	CONSTRAINT PK_INSPECCION PRIMARY KEY (&quot;folio&quot; AUTOINCREMENT),
+	CONSTRAINT FK_INSPECICON_INSPECCIONENTRADA FOREIGN KEY (folioentrada) REFERENCES InspeccionEntrada(folio),
+		CONSTRAINT FK_INSPECCION_INSPECCIONSALIDA FOREIGN KEY (foliosalida) REFERENCES InspeccionSalida(folio)
+)</sql><sql name="SQL 2">INSERT into LlantaDerInt13 (marcallanta13,condicionllanta13) values ('Michellin','Mala')
+
+select * from LlantaDerInt13
+
+select last_insert_rowid()
+</sql><current_tab id="1"/></tab_sql></sqlb_project>

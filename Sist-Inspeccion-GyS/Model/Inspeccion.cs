@@ -6,93 +6,195 @@ using System.Threading.Tasks;
 
 namespace Sist_Inspeccion_GyS
 {
-    class Inspeccion
+    public class Inspeccion
     {
-        private int _intFolio;
+        #region LLave primaria.
+        private string _strFolio;
 
-        public int Folio
+        public string folio
         {
-            get { return _intFolio; }
-            set { _intFolio = value; }
+            get { return _strFolio; }
+            set { _strFolio = value; }
         }
 
-        private DateTime _dtmFecha;
+        private int _intNoCaja;
 
-        public DateTime Fecha
+        public int nocaja
         {
-            get { return _dtmFecha; }
-            set { _dtmFecha = value; }
+            get { return _intNoCaja; }
+            set {
+                if (value.ToString() == "")
+                {
+                    throw new Exception("Ingrese el número de caja");
+                }
+                else
+                {
+                    _intNoCaja = value;
+                }
+            }
         }
 
+        private string _strFecha;
 
-        private string _strPlacasCaja;
-
-        public string PlacasCaja
+        public string fecha
         {
-            get { return _strPlacasCaja; }
-            set { _strPlacasCaja = value; }
+            get { return _strFecha; }
+            set {
+                if (value == "")
+                {
+                    throw new Exception("Ingrese la fecha");
+                }
+                else
+                {
+                    _strFecha = value;
+                }
+            }
         }
 
-        private string _strPlacasTractor;
+        private string _strHora;
 
-        public string PlacasTractor
+        public string hora
         {
-            get { return _strPlacasTractor; }
-            set { _strPlacasTractor = value; }
+            get { return _strHora; }
+            set {
+                if(value == "")
+                {
+                    throw new Exception("Ingrese la hora");
+                }
+                else
+                {
+                    _strHora = value;
+                }
+            }
         }
 
-        private string _strNombreOperador;
+        #endregion
 
-        public string NombreOperador
-        {
-            get { return _strNombreOperador; }
-            set { _strNombreOperador = value; }
-        }
+
 
         private string _strCliente;
 
-        public string Cliente
+        public string cliente
         {
             get { return _strCliente; }
-            set { _strCliente = value; }
+            set {
+                if(value == "")
+                {
+                    throw new Exception("Ingrese el CIA");
+                }
+                else
+                {
+                    _strCliente = value;
+                }
+            }
         }
 
-        //Datos que se agregaron despues de la junta.
+
+        private string _strNombreOperador;
+
+        public string nombreoperador
+        {
+            get { return _strNombreOperador; }
+            set {
+                if (value == "")
+                {
+                    throw new Exception("Ingrese el nombre del operador");
+                }
+                else
+                {
+                    _strNombreOperador = value;
+                }
+            }
+        }
 
         private string _strInspector;
 
-        public string Inspector
+        public string inspector
         {
             get { return _strInspector; }
-            set { _strInspector = value; }
+            set {
+                if(value=="")
+                {
+                    throw new Exception("Ingrese el nombre del inspector(a)");
+                }
+                else
+                {
+                    _strInspector = value;
+                }
+            }
         }
 
+        private int _intIdImagenes;
 
+        public int idimagenes
+        {
+            get { return _intIdImagenes; }
+            set { _intIdImagenes = value; }
+        }
+
+        private int _intIdLuces;
+
+        public int idluces
+        {
+            get { return _intIdLuces; }
+            set { _intIdLuces = value; }
+        }
+
+        private int _intIdPerifericos;
+
+        public int idperifericos
+        {
+            get { return _intIdPerifericos; }
+            set { _intIdPerifericos = value; }
+        }
+        private int _intIdLlantas;
+
+        public int idllantas
+        {
+            get { return _intIdLlantas; }
+            set { _intIdLlantas = value; }
+        }
+
+        private int _intIdCompartimientosOCultos;
+
+        public int idcompartimientosocultos
+        {
+            get { return _intIdCompartimientosOCultos; }
+            set { _intIdCompartimientosOCultos = value; }
+        }
 
 
         private string _strUnidadMedida;
 
-        public string UnidadMedida
+        public string unidadmedida
         {
             get { return _strUnidadMedida; }
             set { _strUnidadMedida = value; }
         }
 
-        private double _dblTemperatura;
+        private double _dblTemperaturaProgramada;
 
-        public double Temperatura
+        public double temperaturaprogramada
         {
-            get { return _dblTemperatura; }
-            set { _dblTemperatura = value; }
+            get { return _dblTemperaturaProgramada; }
+            set { _dblTemperaturaProgramada = value; }
         }
 
+        private double _dblTemperaturaReal;
 
+        public double temperaturareal
+        {
+            get { return _dblTemperaturaReal; }
+            set { _dblTemperaturaReal = value; }
+        }
 
+        private string _strrfolioconsecutivo;
 
-
-
-
-
+        public string folioconsecutivo
+        {
+            get { return _strrfolioconsecutivo; }
+            set { _strrfolioconsecutivo = value; }
+        }
 
     }
 }

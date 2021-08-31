@@ -11,772 +11,1067 @@
              Background="DarkGray">
     <!--Background="#13295A"-->
     <ScrollViewer>
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <!--Definición de columnas y filas del grid principal-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.5*"></ColumnDefinition>
-            <ColumnDefinition Width="1.4*"></ColumnDefinition>
-            <ColumnDefinition Width="2.1*"></ColumnDefinition>
-            <ColumnDefinition Width="2.5*"></ColumnDefinition>
-            <ColumnDefinition Width="1.5*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <!--Groupbox tipo de inspección-->
-        <GroupBox Grid.Column="0" Grid.Row="0" Header="Tipo de inspección" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <RadioButton  Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" GroupName="grpTipoInspeccion" Content="Salida" FontSize="24"  Width="150" Height="50" HorizontalAlignment="Center" Margin="15"/>
-                <RadioButton  Grid.Row="1" Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" GroupName="grpTipoInspeccion" Content="Entrada" FontSize="24" Width="150" Height="50" HorizontalAlignment="Center" Margin="15"/>
-            </Grid>
-        </GroupBox>
-
-        <!--Groupbox información general-->
-        <GroupBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Header="Información General" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.4*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.6*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBox  Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="Inspector(a)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
-                <TextBox  Grid.Column="1" Grid.Row="0" materialDesign:HintAssist.Hint="No. Caja" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
-                <TextBox Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nombre del operador" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
-                <TextBox  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nombre CIA" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5"/>
-                <DatePicker Name="LocaleDatePicker" Grid.Column="2" Grid.Row="1" MinWidth="120" materialDesign:HintAssist.Hint="Fecha" Margin="2.5" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" SelectedDate="{x:Static sys:DateTime.Now}"/>
-                <materialDesign:TimePicker MinWidth="100" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Hora" Grid.Column="3" Grid.Row="1" Margin="2.5" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" SelectedTime="{x:Static sys:DateTime.Now}"/>
-            </Grid>
-        </GroupBox>
-
-        <!--Groupbox imagenes-->
-        <GroupBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2" Header="Imagenes" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock FontSize="16"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte frontal" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
-                    </Button>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
-                </Grid>
-                <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte trasera" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
-                    </Button>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
-                </Grid>
-                <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte derecha" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
-                    </Button>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill" />
-                </Grid>
-                <Grid Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte izquierda" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
-                    </Button>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
-                </Grid>
-                <Grid Grid.Column="2" Grid.Row="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock  FontSize="16"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Diesel" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
-                    </Button>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
-                </Grid>
-                <Grid Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Termómetro" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,2.5">
-                        <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
-                    </Button>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill"/>
-                </Grid>
-            </Grid>
-        </GroupBox>
-
-        <!--Groupbox luces de la caja-->
-        <GroupBox Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" Header="Luces de la caja" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock  Grid.Column="0" Grid.Row="0" Text="F. Derecha" FontSize="22" VerticalAlignment="Center"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="0" Grid.Row="1" Text="C. Derecha" FontSize="22" VerticalAlignment="Center"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="0" Grid.Row="2" Text="FR. Derecha" FontSize="22" VerticalAlignment="Center"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="0" Grid.Row="3" Text="Dir. Derecha" FontSize="22" VerticalAlignment="Center"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="0" Grid.Row="4" Text="Plafón" FontSize="22" VerticalAlignment="Center"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-
-                <!---->
-                <TextBlock  Grid.Column="2" Grid.Row="0" Text="F. Izquierda" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="3" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="2" Grid.Row="1" Text="C. Izquierda" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="3" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="2" Grid.Row="2" Text="FR. Izquierda" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="3" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="2" Grid.Row="3" Text="Dir. Izquierda" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="3" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock  Grid.Column="2" Grid.Row="4" Text="ABS" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="3" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-
-                <TextBox  Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones"/>
-            </Grid>
-        </GroupBox>
-
-        <!--Groupbox de las llantas-->
-        <GroupBox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Header="Llantas de la caja" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBlock  Grid.Row="0" Grid.Column="0" Text="Posición" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Izq. Ext(11)"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Izq. Int(12)"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Izq. Ext(15)"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Izq. Int(16)"/>
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Der. Int(13)"/>
-                <TextBlock Grid.Row="6" Grid.Column="0" Text="Der. Ext(14)"/>
-                <TextBlock Grid.Row="7" Grid.Column="0" Text="Der. Ext(17)"/>
-                <TextBlock Grid.Row="8" Grid.Column="0" Text="Der. Ext(18)"/>
-
-                
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Marca" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <ComboBox  Grid.Row="1" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <ComboBox Grid.Row="2" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <ComboBox Grid.Row="3" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <ComboBox Grid.Row="4" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <ComboBox Grid.Row="5" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <ComboBox Grid.Row="6" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <ComboBox Grid.Row="7" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <ComboBox Grid.Row="8" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}">
-                    <ComboBoxItem IsSelected="True" Content="Michelin" />
-                    <ComboBoxItem Content="Bridgestone" />
-                    <ComboBoxItem Content="Firestone" />
-                    <ComboBoxItem Content="BF Goodrich" />
-                    <ComboBoxItem Content="Otra"/>
-                </ComboBox>
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="Condición" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <ListBox Grid.Column="2" Grid.Row="1" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena" />
-                    <ListBoxItem Content="Regular" />
-                    <ListBoxItem Content="Mala" />
-                </ListBox>
-                <ListBox Grid.Column="2" Grid.Row="2" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena" />
-                    <ListBoxItem Content="Regular" />
-                    <ListBoxItem Content="Mala" />
-                </ListBox>
-                <ListBox Grid.Column="2" Grid.Row="3" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena"/>
-                    <ListBoxItem Content="Regular"/>
-                    <ListBoxItem Content="Mala"/>
-                </ListBox>
-                <ListBox Grid.Column="2" Grid.Row="4" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena"/>
-                    <ListBoxItem Content="Regular"/>
-                    <ListBoxItem Content="Mala"/>
-                </ListBox>
-                <ListBox Grid.Column="2" Grid.Row="5" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena"/>
-                    <ListBoxItem Content="Regular"/>
-                    <ListBoxItem Content="Mala"/>
-                </ListBox>
-                <ListBox Grid.Column="2" Grid.Row="6" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena"/>
-                    <ListBoxItem Content="Regular"/>
-                    <ListBoxItem Content="Mala"/>
-                </ListBox>
-                <ListBox Grid.Column="2" Grid.Row="7" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena" />
-                    <ListBoxItem Content="Regular"/>
-                    <ListBoxItem Content="Mala" />
-                </ListBox>
-                <ListBox Grid.Column="2" Grid.Row="8" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                    <ListBoxItem IsSelected="True" Content="Buena" />
-                    <ListBoxItem Content="Regular"/>
-                    <ListBoxItem Content="Mala"/>
-                </ListBox>
-            </Grid>
-        </GroupBox>
-
-        <!--Groupbox de los perifericos-->
-        <GroupBox Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Header="Perifericos" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="Manivela" FontSize="22" VerticalAlignment="Center" />
-                <ToggleButton Grid.Column="1" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Lodera Izq." FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="2" Text="Lodera Der." FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="3" Text="Manitas aire" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="4" Text="Rines remolque" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="5" Text="Mangueras de aire" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="1" Grid.Row="5" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-            </Grid>
-        </GroupBox>
-        
-        <!--Groupbox del termómetro-->
-        <GroupBox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Header="Termómetro" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <ListBox Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}" x:Name="unidadMedidaTermometro" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                        <ListBoxItem Content="°F" IsSelected="True"/>
-                        <ListBoxItem Content="°C" />
-                    </ListBox>
-                </Grid>
-                <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Temp. Prog." Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
-                <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Temp. Real" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
-
-            </Grid>
-        </GroupBox>
-
-        <!--Groupbox de los compartimientos ocultos-->
-        <GroupBox Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Header="Compartimientos ocultos" FontSize="22" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" MaxWidth="250"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*" MaxWidth="250"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*" MaxWidth="250"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Defensa" FontSize="22" VerticalAlignment="Center"/>
-                <ToggleButton Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Text="Motor" FontSize="22"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Text="Llantas" FontSize="22"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Text="Piso cabina" FontSize="22"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Text="Tanque combustible" FontSize="22"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" Text="Cabina" FontSize="22"/>
-                    <ToggleButton Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Text="Cilindros aire" FontSize="22"/>
-                    <ToggleButton Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Text="Cambios" FontSize="22"/>
-                    <ToggleButton Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Text="Quinta rueda" FontSize="22"/>
-                    <ToggleButton Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Text="Exterior chasis" FontSize="22"/>
-                    <ToggleButton Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Text="Piso remolque (dentro)" FontSize="22"/>
-                    <ToggleButton Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Text="Puertas (dentro y fuera)" FontSize="22"/>
-                    <ToggleButton Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" Text="Paredes lados" FontSize="22"/>
-                <ToggleButton Grid.Column="5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="4" Grid.Row="1" VerticalAlignment="Center" Text="Techo pared frontal" FontSize="22"/>
-                <ToggleButton Grid.Column="5" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Text="Pared frontal piso" FontSize="22"/>
-                <ToggleButton Grid.Column="5" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" Text="Unidad refrigerada" FontSize="22"/>
-                <ToggleButton Grid.Column="5" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="4" Grid.Row="4"  VerticalAlignment="Center" Text="Mofle" FontSize="22"/>
-                <ToggleButton Grid.Column="5" Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBlock Grid.Column="4" Grid.Row="5"  VerticalAlignment="Center" Text="Sello/Fleje" FontSize="22"/>
-                <ToggleButton Grid.Column="5" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                        <SolidColorBrush Color="Green" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
-                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                        <SolidColorBrush Color="Red" />
-                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
-                </ToggleButton>
-                <TextBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="6" TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones"/>
-            </Grid>
-        </GroupBox>
-        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Margin="10,5">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!--Definición de columnas y filas del grid principal-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                <ColumnDefinition Width="2.1*"></ColumnDefinition>
+                <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" MinHeight="50">
+            <!--Groupbox tipo de inspección-->
+            <GroupBox x:Name="grbTipoInspeccion" Grid.Column="0" Grid.Row="0" Header="Tipo de inspección" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <RadioButton x:Name="rbSalida"  Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" GroupName="grpTipoInspeccion" Content="Salida" FontSize="20"  Width="100" Height="50" HorizontalAlignment="Center" Margin="15" IsChecked="True"/>
+                    <RadioButton x:Name="rbEntrada"  Grid.Row="1" Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" GroupName="grpTipoInspeccion" Content="Entrada" FontSize="20" Width="100" Height="50" HorizontalAlignment="Center" Margin="15"/>
+                </Grid>
+            </GroupBox>
+
+            <!--Groupbox información general-->
+            <GroupBox x:Name="grbInfoGeneral" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Header="Información General" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Grid.Column="0" Kind="ContentSave" Height="40" Width="40"/>
-                    <TextBlock Grid.Column="1" Text="Guardar" VerticalAlignment="Center" Margin="20,5"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="txtInspector" CharacterCasing="Upper" Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="Inspector(a)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5" FontSize="18"/>
+                    <TextBox x:Name="txtNoCaja" Grid.Column="1" Grid.Row="0" materialDesign:HintAssist.Hint="No. Remolque" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5" PreviewTextInput="txtNoCaja_PreviewTextInput" FontSize="18"/>
+                    <TextBox x:Name="txtNombreOperador" CharacterCasing="Upper" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nombre del operador" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5" FontSize="18"/>
+                    <TextBox x:Name="txtCliente" CharacterCasing="Upper" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nombre CIA" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="2.5" FontSize="18"/>
+                    <DatePicker x:Name="Fecha" Grid.Column="2" Grid.Row="1" MinWidth="120" materialDesign:HintAssist.Hint="Fecha" Margin="2.5" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" SelectedDate="{x:Static sys:DateTime.Now}" IsEnabled="False" FontSize="18"/>
+                    <materialDesign:TimePicker x:Name="Hora" MinWidth="100" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Hora" Grid.Column="3" Grid.Row="1" Margin="2.5" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" SelectedTime="{x:Static sys:DateTime.Now}" IsEnabled="False" FontSize="18"/>
                 </Grid>
-            </Button>
-            <Button Grid.Row="1" MinHeight="50">
+            </GroupBox>
+
+            <!--Popup para mostrar las imagenes al expandirlas-->
+            <Popup x:Name="PopUp" VerticalAlignment="Center" HorizontalAlignment="Center" IsOpen="False" MaxHeight="600" MaxWidth="800" Placement="Center">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Background="#FF3F51B5">
+                        <TextBlock x:Name="txtPopUpTitulo" Text="Imagen" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
+                    </Grid>
+                    <Button x:Name="btnPopUpCerrar" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Click="btnPopUpCerrar_Click">
+                        <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    </Button>
+                    <Image x:Name="PopUpImg" Stretch="Fill" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                </Grid>
+            </Popup>
+            <!--Groupbox imagenes-->
+            <GroupBox x:Name="grbImagenes" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2" Header="Imagenes" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Grid.Column="0" Kind="FileEdit" Height="40" Width="40"/>
-                    <TextBlock Grid.Column="1" Text="Editar" VerticalAlignment="Center" Margin="20,5"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontSize="16"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte frontal" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <Button x:Name="btnExpandirImgFrontal" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="2.5,2.5" Click="btnExpandirImgFrontal_Click">
+                            <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                        </Button>
+                        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="2.5,2.5">
+                            <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="btnSubirImgFrontal" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Click="btnSubirImgFrontal_Click" Margin="2.5,0">
+                            <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                        </Button>
+                        <Image x:Name="imgFrontal" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill" MaxHeight="160" MaxWidth="155"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte trasera" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <Button x:Name="btnExpandirImgTrasera" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="2.5,2.5" Click="btnExpandirImgTrasera_Click">
+                            <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                        </Button>
+                        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="2.5,2.5">
+                            <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="btnSubirImgTrasera" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Click="btnSubirImgTrasera_Click" Margin="2.5,0">
+                            <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                        </Button>
+                        <Image x:Name="imgTrasera" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill" MaxHeight="160" MaxWidth="155"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte derecha" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <Button x:Name="btnExpandirImgDerecha" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="2.5,2.5" Click="btnExpandirImgDerecha_Click">
+                            <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                        </Button>
+                        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="2.5,2.5">
+                            <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="btnSubirImgDerecha" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Click="btnSubirImgDerecha_Click" Margin="2.5,0">
+                            <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                        </Button>
+                        <Image x:Name="imgDerecha" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill" MaxHeight="160" MaxWidth="155" />
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Parte izquierda" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <Button x:Name="btnExpandirImgIzquierda" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="2.5,2.5" Click="btnExpandirImgIzquierda_Click">
+                            <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                        </Button>
+                        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="2.5,2.5">
+                            <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="btnSubirImgIzquierda" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Click="btnSubirImgIzquierda_Click" Margin="2.5,0">
+                            <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                        </Button>
+                        <Image x:Name="imgIzquierda" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill" MaxHeight="160" MaxWidth="155"/>
+                    </Grid>
+                    <Grid Grid.Column="2" Grid.Row="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  FontSize="16"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Diesel" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <Button x:Name="btnExpandirImgDiesel" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="2.5,2.5" Click="btnExpandirImgDiesel_Click">
+                            <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                        </Button>
+                        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="2.5,2.5">
+                            <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="btnSubirImgDiesel" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Click="btnSubirImgDiesel_Click" Margin="2.5,0">
+                            <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                        </Button>
+                        <Image x:Name="imgDiesel" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill" MaxHeight="160" MaxWidth="155"/>
+                    </Grid>
+                    <Grid Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  FontSize="16" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Termómetro" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <Button x:Name="btnExpandirTermometro" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="2.5,2.5" Click="btnExpandirTermometro_Click">
+                            <materialDesign:PackIcon Kind="ArrowExpand"></materialDesign:PackIcon>
+                        </Button>
+                        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="2.5,2.5">
+                            <materialDesign:PackIcon Kind="Refresh"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="btnSubirImgTermometro" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Click="btnSubirImgTermometro_Click" Margin="2.5,0">
+                            <materialDesign:PackIcon Kind="Upload"></materialDesign:PackIcon>
+                        </Button>
+                        <Image x:Name="imgTermometro" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="/Resources/Logowbg.png" Stretch="Fill" MaxHeight="160" MaxWidth="155"/>
+                    </Grid>
                 </Grid>
-            </Button>
-            <Button Grid.Row="2" MinHeight="50">
+            </GroupBox>
+
+            <!--Groupbox luces de la caja-->
+            <GroupBox x:Name="grbLuces" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" Header="Luces del Remolque" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
                 <Grid>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" Text="F. Der." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglFDerecha" Grid.Column="1" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="0" Grid.Row="1" Text="C. Der." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglCDerecha" Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="0" Grid.Row="2" Text="FR. Der." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglFrDerecha" Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="0" Grid.Row="3" Text="Dir. Der." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglDirDerecha" Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="0" Grid.Row="4" Text="Plafón" FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglPlafon" Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+
+                    <!---->
+                    <TextBlock  Grid.Column="2" Grid.Row="0" Text="F. Izq." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglFIzquierda" Grid.Column="3" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="2" Grid.Row="1" Text="C. Izq." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglCIzquierda" Grid.Column="3" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="2" Grid.Row="2" Text="FR. Izq." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglFrIzquierda" Grid.Column="3" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="2" Grid.Row="3" Text="Dir. Izq." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglDirIzquierda" Grid.Column="3" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock  Grid.Column="2" Grid.Row="4" Text="ABS" FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglAbs" Grid.Column="3" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+
+                    <TextBox x:Name="txtObservaciones"  Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones"/>
+                </Grid>
+            </GroupBox>
+
+            <!--Groupbox de las llantas-->
+            <GroupBox x:Name="grbLlantas" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Header="Llantas del Remolque" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Row="0" Grid.Column="0" Text="Posición" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Izq. Ext(11)" FontSize="18" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Izq. Int(12)" FontSize="18" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Izq. Ext(15)" FontSize="18" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Izq. Int(16)" FontSize="18" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Der. Int(13)" FontSize="18" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Der. Ext(14)" FontSize="18" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="Der. Int(17)" FontSize="18" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="8" Grid.Column="0" Text="Der. Ext(18)" FontSize="18" VerticalAlignment="Center"/>
+
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Marca" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cmbIzqExt11"  Grid.Row="1" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbIzqInt12" Grid.Row="2" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbIzqExt15" Grid.Row="3" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbIzqInt16" Grid.Row="4" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbDerInt13" Grid.Row="5" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbDerExt14" Grid.Row="6" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbDerInt17" Grid.Row="7" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbDerExt18" Grid.Row="8" Grid.Column="1" materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}" FontSize="18" VerticalAlignment="Stretch">
+                        <ComboBoxItem IsSelected="True" Content="Avon tires" />
+                        <ComboBoxItem Content="BF Goodrich" />
+                        <ComboBoxItem Content="Bridgestone" />
+                        <ComboBoxItem Content="Continental" />
+                        <ComboBoxItem Content="Cooper tires" />
+                        <ComboBoxItem Content="Dayton" />
+                        <ComboBoxItem Content="Dickcepek" />
+                        <ComboBoxItem Content="Dunlop tires" />
+                        <ComboBoxItem Content="Falken" />
+                        <ComboBoxItem Content="Firestone" />
+                        <ComboBoxItem Content="Fortune" />
+                        <ComboBoxItem Content="Fuzion" />
+                        <ComboBoxItem Content="General" />
+                        <ComboBoxItem Content="Goodride" />
+                        <ComboBoxItem Content="Goodyear" />
+                        <ComboBoxItem Content="Hankook" />
+                        <ComboBoxItem Content="Hoosierracing tire" />
+                        <ComboBoxItem Content="Iaplus" />
+                        <ComboBoxItem Content="Kumho tire" />
+                        <ComboBoxItem Content="Lanvigator" />
+                        <ComboBoxItem Content="Laufenn" />
+                        <ComboBoxItem Content="Michellin" />
+                        <ComboBoxItem Content="Nexen" />
+                        <ComboBoxItem Content="Pirelli" />
+                        <ComboBoxItem Content="Power king" />
+                        <ComboBoxItem Content="Riken" />
+                        <ComboBoxItem Content="Roadmaster" />
+                        <ComboBoxItem Content="SE3A" />
+                        <ComboBoxItem Content="Sumitomo tires" />
+                        <ComboBoxItem Content="Supercargo" />
+                        <ComboBoxItem Content="Superhawk" />
+                        <ComboBoxItem Content="Tornel" />
+                        <ComboBoxItem Content="Toyo tires" />
+                        <ComboBoxItem Content="Triangle" />
+                        <ComboBoxItem Content="Uniroyal" />
+                        <ComboBoxItem Content="Vredesten tires" />
+                        <ComboBoxItem Content="Yokho" />
+                        <ComboBoxItem Content="Otra"/>
+                    </ComboBox>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Condición" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <ListBox x:Name="lsbIzqExt11" Grid.Column="2" Grid.Row="1" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena"/>
+                        <ListBoxItem Content="Regular" />
+                        <ListBoxItem Content="Mala" />
+                    </ListBox>
+                    <ListBox x:Name="lsbIzqInt12" Grid.Column="2" Grid.Row="2" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena" />
+                        <ListBoxItem Content="Regular" />
+                        <ListBoxItem Content="Mala" />
+                    </ListBox>
+                    <ListBox x:Name="lsbIzqExt15" Grid.Column="2" Grid.Row="3" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena"/>
+                        <ListBoxItem Content="Regular"/>
+                        <ListBoxItem Content="Mala"/>
+                    </ListBox>
+                    <ListBox x:Name="lsbIzqInt16" Grid.Column="2" Grid.Row="4" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena"/>
+                        <ListBoxItem Content="Regular"/>
+                        <ListBoxItem Content="Mala"/>
+                    </ListBox>
+                    <ListBox  x:Name="lsbDerInt13" Grid.Column="2" Grid.Row="5" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena"/>
+                        <ListBoxItem Content="Regular"/>
+                        <ListBoxItem Content="Mala"/>
+                    </ListBox>
+                    <ListBox x:Name="lsbDerExt14" Grid.Column="2" Grid.Row="6" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena"/>
+                        <ListBoxItem Content="Regular"/>
+                        <ListBoxItem Content="Mala"/>
+                    </ListBox>
+                    <ListBox  x:Name="lsbDerInt17" Grid.Column="2" Grid.Row="7" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena" />
+                        <ListBoxItem Content="Regular"/>
+                        <ListBoxItem Content="Mala" />
+                    </ListBox>
+                    <ListBox x:Name="lsbDerExt18" Grid.Column="2" Grid.Row="8" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True" Content="Buena" />
+                        <ListBoxItem Content="Regular"/>
+                        <ListBoxItem Content="Mala"/>
+                    </ListBox>
+                </Grid>
+            </GroupBox>
+
+            <!--Groupbox de los perifericos-->
+            <GroupBox x:Name="grbPerifericos" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Header="Perifericos" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Manivela" FontSize="18" VerticalAlignment="Center" />
+                    <ToggleButton x:Name="tglManivela" Grid.Column="1" Grid.Row="0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,9">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Lodera Izq." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglLoderaIzq" Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Lodera Der." FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglLoderaDer" Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Manitas aire" FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglManitasAire" Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Rines remolque" FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglRinesRemolque" Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="5" Text="Mangueras aire" FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglManguerasAire" Grid.Column="1" Grid.Row="5" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                </Grid>
+            </GroupBox>
+
+            <!--Groupbox del termómetro-->
+            <GroupBox x:Name="grbTermometro" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Header="Termómetro" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Grid.Column="0" Kind="Printer" Height="40" Width="40"/>
-                    <TextBlock Grid.Column="1" Text="Imprimir" VerticalAlignment="Center" Margin="20,5"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <ListBox Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}" x:Name="unidadMedidaTermometro" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                            <ListBoxItem x:Name="TermoF" Content="°F"  IsSelected="True"/>
+                            <ListBoxItem x:Name="TermoC" Content="°C" />
+                        </ListBox>
+                    </Grid>
+                    <TextBox x:Name="txtTProgramada" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Temp. Prog." Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" TextChanged="txtTProgramada_TextChanged" PreviewTextInput="txtTProgramada_PreviewTextInput" FontSize="18"/>
+                    <TextBox x:Name="txtTReal" Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Temp. Real" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" PreviewTextInput="txtTReal_PreviewTextInput" FontSize="18" />
+
                 </Grid>
-            </Button>
+            </GroupBox>
+
+            <!--Groupbox de los compartimientos ocultos-->
+            <GroupBox x:Name="grbCompartimientos" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Header="Compartimientos ocultos" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="250"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" MaxWidth="250"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" MaxWidth="250"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Defensa" FontSize="18" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="tglDefensa" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Text="Motor" FontSize="18"/>
+                    <ToggleButton x:Name="tglMotor" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Text="Llantas" FontSize="18"/>
+                    <ToggleButton x:Name="tglLlantas" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Text="Piso cabina" FontSize="18"/>
+                    <ToggleButton x:Name="tglPisoCabina" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Text="Tanque comb." FontSize="18"/>
+                    <ToggleButton x:Name="tglTanqueCombustible" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,0,5">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" Text="Cabina" FontSize="18"/>
+                    <ToggleButton x:Name="tglCabina" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Text="Cilindros aire" FontSize="18"/>
+                    <ToggleButton x:Name="tglCilindrosAire" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Text="Cambios" FontSize="18"/>
+                    <ToggleButton x:Name="tglCambios" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Text="Quinta rueda" FontSize="18"/>
+                    <ToggleButton x:Name="tglQuintaRueda" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Text="Exterior chasis" FontSize="18"/>
+                    <ToggleButton x:Name="tglExteriorChasis" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Text="Piso remolque (dentro)" FontSize="16"/>
+                    <ToggleButton x:Name="tglPisoRemolque" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Text="Puertas (dentro y fuera)" FontSize="16"/>
+                    <ToggleButton x:Name="tglPuertas" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background" Margin="0,0,30,0">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" Text="Paredes lados" FontSize="18"/>
+                    <ToggleButton x:Name="tglParedesLados" Grid.Column="5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="4" Grid.Row="1" VerticalAlignment="Center" Text="Techo pared frontal" FontSize="16"/>
+                    <ToggleButton x:Name="tglTechoParedFrontal" Grid.Column="5" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Text="Pared frontal piso" FontSize="16"/>
+                    <ToggleButton x:Name="tglParedFrontalPiso" Grid.Column="5" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" Text="U. refrigerada" FontSize="18"/>
+                    <ToggleButton x:Name="tglUnidadRefrigerda" Grid.Column="5" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="4" Grid.Row="4"  VerticalAlignment="Center" Text="Mofle" FontSize="18"/>
+                    <ToggleButton x:Name="tglMofle" Grid.Column="5" Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBlock Grid.Column="4" Grid.Row="5"  VerticalAlignment="Center" Text="Sello/Fleje" FontSize="18"/>
+                    <ToggleButton x:Name="tglSello" Grid.Column="5" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <SolidColorBrush Color="Green" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                        <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                            <SolidColorBrush Color="Red" />
+                        </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                    </ToggleButton>
+                    <TextBox x:Name="txtObservacionesCompartimiento" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="6" TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones"/>
+                </Grid>
+            </GroupBox>
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Margin="10,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="btnGuardar" Grid.Row="0" MinHeight="50" Click="btnGuardar_Click" HorizontalAlignment="Stretch" Margin="0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="ContentSave" Height="40" Width="40"/>
+                        <TextBlock Grid.Column="1" Text="Guardar" VerticalAlignment="Bottom" Margin="20,0,20,10"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="btnEditar" Grid.Row="1" MinHeight="50" Click="btnEditar_Click" IsEnabled="False" HorizontalAlignment="Stretch">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="FileEdit" Height="40" Width="40"/>
+                        <TextBlock Grid.Column="1" Text="Editar" VerticalAlignment="Center" Margin="20,5"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="btnAbrirReporte" Grid.Row="2" MinHeight="50" IsEnabled="False" Click="btnAbrirReporte_Click" HorizontalAlignment="Stretch" FontSize="12">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="FilePdf" Height="40" Width="40"/>
+                        <TextBlock Grid.Column="1" Text="Abrir reporte" VerticalAlignment="Center" Margin="20,5"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="btnNuevo" Grid.Row="3" MinHeight="50" Click="btnNuevo_Click" HorizontalAlignment="Stretch">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="File" Height="40" Width="40"/>
+                        <TextBlock Grid.Column="1" Text="Nuevo" VerticalAlignment="Bottom" Margin="20,0,20,10"/>
+                    </Grid>
+                </Button>
+            </Grid>
         </Grid>
-    </Grid>
     </ScrollViewer>
 </UserControl>

@@ -89,12 +89,12 @@
                     </Button>
                 </Grid>
                 <ListView x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="Gainsboro" SelectionChanged="ListViewMenu_SelectionChanged">
-                    <ListViewItem x:Name="ItemInicio" Height="100">
+                    <!--<ListViewItem x:Name="ItemInicio" Height="100">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="40" Height="40" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Inicio" VerticalAlignment="Center" Margin="15 10" FontSize="25"/>
                         </StackPanel>
-                    </ListViewItem>
+                    </ListViewItem>-->
                     <ListViewItem x:Name="ItemRegistro" Height="100">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Pencil" Width="40" Height="40" Margin="5" VerticalAlignment="Center"/>
