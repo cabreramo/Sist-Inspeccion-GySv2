@@ -17,19 +17,20 @@ namespace Sist_Inspeccion_GyS
             set { _strFolio = value; }
         }
 
-        private int _intNoCaja;
+        private string _strNoCaja;
 
-        public int nocaja
+        public string nocaja
         {
-            get { return _intNoCaja; }
-            set {
-                if (value.ToString() == "")
+            get { return _strNoCaja; }
+            set
+            {
+                if (value == "")
                 {
-                    throw new Exception("Ingrese el número de caja");
+                    throw new Exception("Ingrese el no de caja");
                 }
                 else
                 {
-                    _intNoCaja = value;
+                    _strNoCaja = value;
                 }
             }
         }
@@ -195,6 +196,15 @@ namespace Sist_Inspeccion_GyS
             get { return _strrfolioconsecutivo; }
             set { _strrfolioconsecutivo = value; }
         }
+
+        private string _strObservacionesInspeccion;
+
+        public string observacionesinspeccion
+        {
+            get { return _strObservacionesInspeccion; }
+            set { _strObservacionesInspeccion = value; }
+        }
+
 
     }
 }

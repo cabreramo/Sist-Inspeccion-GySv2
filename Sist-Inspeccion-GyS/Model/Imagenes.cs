@@ -15,14 +15,31 @@ namespace Sist_Inspeccion_GyS
         //    get { return _intIdImagenes; }
         //    set { _intIdImagenes = value; }
         //}
-        private byte[] _strImgCajaFrontal;
+        //private byte[] _strImgCajaFrontal;
 
-        public byte[] ImgCajaFrontal
+        //public byte[] ImgCajaFrontal
+        //{
+        //    get { return _strImgCajaFrontal; }
+        //    set { _strImgCajaFrontal = value; }
+        //}
+
+
+        private byte[] _strImgObservacionUno;
+
+        public byte[] ImgObservacionUno
         {
-            get { return _strImgCajaFrontal; }
-            set { _strImgCajaFrontal = value; }
+            get { return _strImgObservacionUno; }
+            set { _strImgObservacionUno = value; }
         }
 
+
+        private byte[] _strImgObservacionDos;
+
+        public byte[] ImgObservacionDos
+        {
+            get { return _strImgObservacionDos; }
+            set { _strImgObservacionDos = value; }
+        }
 
         private byte[] _strImgCajaTrasera;
 
